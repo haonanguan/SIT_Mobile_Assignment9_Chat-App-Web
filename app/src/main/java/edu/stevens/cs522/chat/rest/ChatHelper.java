@@ -25,7 +25,7 @@ public class ChatHelper {
 
     private static final String TAG = ChatHelper.class.getCanonicalName();
 
-    public static final int SYNC_INTERVAL = 5;
+    public static final int SYNC_INTERVAL = 1;
 
     private final Context context;
 
