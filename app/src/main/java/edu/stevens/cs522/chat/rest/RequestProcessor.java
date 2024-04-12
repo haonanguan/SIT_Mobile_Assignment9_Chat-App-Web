@@ -221,7 +221,7 @@ public class RequestProcessor {
                             Log.d(TAG, "Uploading message: "+message.messageText);
                             gson.toJson(message, Message.class, wr);
                         }
-                        wr.endArray();
+                        wr.endArray().flush();
 
                         wr.endObject();
 
