@@ -218,9 +218,10 @@ public class RequestProcessor {
                         // TODO upload a list of unread messages.
                         wr.beginArray();
                         for(Message message: messages) {
-                            gson.toJson(message, messageType, wr);
+                            Log.d(TAG, "Uploading message: "+message.messageText);
+                            gson.toJson(message, Message.class, wr);
                         }
-                        wr.endArray().flush();
+                        wr.endArray();
 
                         wr.endObject();
 
@@ -289,7 +290,7 @@ public class RequestProcessor {
                 // TODO parse the list of messages and upsert them into the database.
                 rd.beginArray();
                 while (rd.peek() != JsonToken.END_ARRAY) {
-                    Message message = gson.fromJson(rd, messageType);
+                    Message message = gson.fromJson(rd, Message.class);
                     chatDatabase.requestDao().upsert(appID, message);
                 }
 

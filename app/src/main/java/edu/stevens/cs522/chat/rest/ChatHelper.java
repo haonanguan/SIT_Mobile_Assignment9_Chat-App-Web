@@ -85,7 +85,7 @@ public class ChatHelper {
 
             // TODO schedule periodic synchronization with message database
             syncRequest = new PeriodicWorkRequest (SynchronizeWorker.class, new Bundle(), SYNC_INTERVAL);
-            workManager.enqueuePeriodicUniqueWork(syncRequest);
+            WorkManager.getInstance(context).enqueuePeriodicUniqueWork(syncRequest);
         }
     }
 
@@ -98,7 +98,7 @@ public class ChatHelper {
             }
 
             // TODO cancel periodic synchronization with message database
-            workManager.cancelPeriodicUniqueWork(syncRequest);
+            WorkManager.getInstance(context).cancelPeriodicUniqueWork(syncRequest);
             syncRequest = null;
         }
     }

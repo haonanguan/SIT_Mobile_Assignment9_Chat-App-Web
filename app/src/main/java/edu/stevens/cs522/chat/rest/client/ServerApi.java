@@ -26,7 +26,7 @@ public interface ServerApi {
     @POST("chat/{chat-name}/messages")
     public Call<Void> postMessage(@Path(CHAT_NAME) String chatName,@Body Message chatMessage);
     @POST("chat/{chat-name}/sync")
-    public Call<ResponseBody> syncMessages(@Query(CHAT_NAME) String chatName,
+    public Call<ResponseBody> syncMessages(@Path(CHAT_NAME) String chatName,
                                            @Query(LAST_SEQ_NUM) long lastSeqNum,
                                            @Body RequestBody requestBody);
 
